@@ -15,5 +15,6 @@ with sync_playwright() as p:
 
     print("Current Cricket Score:")
     print(scorecard)
+    page.screenshot(path="score.png")
 
     browser.close()
