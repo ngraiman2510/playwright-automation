@@ -1,74 +1,53 @@
-# learnings-ai
+# Cricbuzz Score Scraper
 
-A personal, hands-on learning repository for **Agentic AI**, starting with the
-Python fundamentals needed to build, understand, and experiment with AI agents.
+A small Python script that uses Playwright to open Cricbuzz, read the first
+scorecard displayed in its match carousel, and print the text to the terminal.
 
-The goal is to learn in small steps: write Python, work with APIs and language
-models, then build up to agent concepts such as tool use, memory, and evaluation.
-This repository is a learning journal, so examples may grow and change as I learn.
+## Requirements
 
-## Learning path
+- Python 3.9 or later
+- An internet connection
+- A graphical desktop session, because the browser runs in headed mode
 
-1. **Python foundations** — syntax, variables, conditions, loops, collections,
-   functions, input validation, and small programs.
-2. **Python for AI applications** — modules, environments, HTTP requests, JSON,
-   and working with APIs.
-3. **Language model basics** — prompts, model APIs, structured outputs, and
-   handling responses.
-4. **Agent building blocks** — tools, multi-step workflows, state, and memory.
-5. **Reliable agents** — testing, evaluation, safety, and deployment.
+## Set up
 
-## What I'm working on
-
-The [`ngr-hands-on/`](./ngr-hands-on/) folder contains the current Python
-practice projects:
-
-- [`learn.py`](./ngr-hands-on/learn.py) — a small introduction to loops,
-  conditionals, and list comprehensions.
-- [`learn.ipynb`](./ngr-hands-on/learn.ipynb) — a notebook for interactive
-  Python experiments.
-- [`grade_manager.py`](./ngr-hands-on/grade_manager.py) — collects student
-  marks, validates input, assigns grades, and calculates summary statistics.
-- [`tic_tac_toe.py`](./ngr-hands-on/tic_tac_toe.py) — a command-line game
-  practicing lists, functions, loops, and game logic.
-- [`requirements.txt`](./ngr-hands-on/requirements.txt) — Python packages
-  for API and HTTP experiments.
-
-## Get started
-
-You need Python 3 installed. Check your installation with:
-
-```bash
-python3 --version
-```
-
-Run an exercise from the repository root:
-
-```bash
-python3 ngr-hands-on/learn.py
-python3 ngr-hands-on/grade_manager.py
-python3 ngr-hands-on/tic_tac_toe.py
-```
-
-The current exercises use Python's standard library. When you start working
-with the packages listed for API experiments, create a virtual environment and
-install them with:
+From this directory, create and activate a virtual environment:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r ngr-hands-on/requirements.txt
 ```
 
-On Windows, activate the environment with `.venv\Scripts\activate` instead.
+On Windows, activate it with:
 
-## Progress
+```powershell
+.venv\Scripts\Activate.ps1
+```
 
-- [x] Start with Python fundamentals and small command-line programs
-- [ ] Practice Python modules and API requests
-- [ ] Make a first language-model API call
-- [ ] Build a small tool-using agent
-- [ ] Add tests and evaluate agent behavior
+Install Playwright and its Chromium browser:
 
-Each project is an opportunity to practice a concept before moving on to the
-next step.
+```bash
+python -m pip install playwright
+python -m playwright install chromium
+```
+
+## Run
+
+With the virtual environment activated:
+
+```bash
+python cricbuzz_score.py
+```
+
+The script opens a Chromium window, waits up to 15 seconds for the scorecard,
+prints its text, and closes the browser.
+
+## Notes
+
+- The script reads only the first matching item in Cricbuzz's match carousel;
+  it does not provide a complete live-score feed.
+- Cricbuzz may change its page structure or restrict automated browsing. If the
+  scorecard is not found, check the selector in `cricbuzz_score.py` and the
+  page's availability.
+- Keep Playwright installed in the active virtual environment when running
+  the script.

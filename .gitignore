@@ -1,70 +1,33 @@
-# ---------- Secrets (never commit these) ----------
-# API keys for Anthropic, OpenAI, etc. belong here, not in your code
-.env
-.env.*
-!.env.example
-*.pem
-*.key
-secrets.json
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
 
-# ---------- Virtual environments ----------
-venv/
+# Virtual environments
 .venv/
+venv/
 env/
 ENV/
 
-# ---------- Python bytecode and caches ----------
-__pycache__/
-*.py[cod]
-*$py.class
+# Test, type-checker, and linter output
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
-.hypothesis/
-
-# ---------- Packaging and build output ----------
-build/
-dist/
-*.egg-info/
-.eggs/
-pip-wheel-metadata/
-
-# ---------- Testing and coverage ----------
 .coverage
-.coverage.*
 htmlcov/
-.tox/
-.nox/
 
-# ---------- Jupyter notebooks ----------
-.ipynb_checkpoints/
+# Playwright output
+test-results/
+playwright-report/
+playwright/.auth/
 
-# ---------- Logs and local data ----------
-*.log
-logs/
-*.sqlite3
-*.db
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
 
-# ---------- VS Code ----------
-# Ignore personal editor files, but keep shared project settings
-.vscode/*
-!.vscode/settings.json
-!.vscode/extensions.json
-!.vscode/launch.json
-
-# ---------- macOS ----------
+# Editor and operating-system files
 .DS_Store
-.AppleDouble
-.LSOverride
-._*
-
-# ---------- Other editors ----------
 .idea/
+.vscode/
 *.swp
 *.swo
-*~
-
-# ---------- Miscellaneous ----------
-learn.py
-learn.ipynb
-*.zip
